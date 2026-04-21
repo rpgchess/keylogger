@@ -91,15 +91,43 @@ hHook := SetWindowsHookEx(
 
 ### Pré-requisitos
 
-- **Delphi 7+**
+- **Delphi 7+** ou **RAD Studio**
 - **Windows**
-- **Ambiente de testes isolado**
+- **Ambiente de testes isolado** (máquina virtual recomendada)
+- **Conhecimento de APIs Windows**
 
-### Compilação
+### Opção 1: Compilar com Delphi IDE
 
 1. Abrir `KeyBoard.dpr` no Delphi
-2. Compilar (F9)
-3. **NÃO distribuir ou usar fora de ambiente de testes**
+2. Project > Build KeyBoard (ou pressionar **Shift+F9**)
+3. **⚠️ NÃO executar fora de ambiente de testes**
+4. **⚠️ NÃO distribuir ou usar para fins maliciosos**
+
+### Opção 2: Linha de Comando
+
+```bash
+# Com Delphi Command Line Compiler
+dcc32 -B KeyBoard.dpr
+
+# ⚠️ IMPORTANTE: Use apenas em VM ou ambiente isolado
+```
+
+### Configuração de Ambiente Seguro
+
+```
+┌─────────────────────────────────┐
+│  Host Machine (Seu Computador)  │
+│                                 │
+│  ┌───────────────────────────┐  │
+│  │  Virtual Machine          │  │
+│  │  (VMware / VirtualBox)    │  │
+│  │                           │  │
+│  │  ► Teste o código aqui   │  │
+│  │  ► Sem rede externa      │  │
+│  │  ► Snapshot para rollback│  │
+│  └───────────────────────────┘  │
+└─────────────────────────────────┘
+```
 
 ## 📚 Aspectos Legais
 
@@ -142,12 +170,48 @@ Para aprender sobre eventos de teclado, considere:
 - [MSDN - Windows Hooks](https://docs.microsoft.com/en-us/windows/win32/winmsg/hooks)
 - [LGPD - Lei Geral de Proteção de Dados](http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm)
 - [OWASP - Security Best Practices](https://owasp.org/)
+- [Delphi Low-Level Keyboard Hook](https://docwiki.embarcadero.com/Libraries/en/Winapi.Windows)
+
+## ⚙️ Melhorias Implementadas
+
+### ✅ Configuração
+- **EditorConfig** adicionado para encoding UTF-8
+- Configuração Delphi/Pascal
+- Line endings Windows (CRLF)
+
+### ✅ Documentação
+- ⚠️ Avisos éticos reforçados
+- Aspectos legais detalhados (LGPD, Lei Carolina Dieckmann)
+- Ambiente seguro de testes documentado
+- Alternativas éticas sugeridas
+- Detecção e prevenção explicadas
+- Exemplos de código educacionais
+
+### ⚠️ Responsabilidade
+
+Este projeto serve EXCLUSIVAMENTE para:
+- 📚 Entender como hooks do Windows funcionam
+- 🔒 Conscientização sobre segurança
+- 🎓 Fins acadêmicos e educacionais
+- 🛡️ Pesquisa de segurança ofensiva (ethical hacking)
+
+**NUNCA para:**
+- ❌ Roubo de informações
+- ❌ Invasão de privacidade
+- ❌ Uso sem consentimento
+- ❌ Violação de leis
 
 ## 👨‍💻 Autor
 
 Claudio Almeida
 
 ## 📝 Licença
+
+Projeto educacional. Uso sob própria responsabilidade.
+
+---
+
+> **⚠️ DISCLAIMER FINAL**: O autor não se responsabiliza por uso indevido deste código. Este projeto é disponibilizado SOMENTE para fins educacionais. O uso malicioso é ilegal e punível por lei.
 
 **Projeto educacional - USO RESPONSÁVEL OBRIGATÓRIO**
 
